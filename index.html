@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menú Cibernético</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente futurista/cibernética -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Habilita el modo oscuro manual por clase
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            base: '#050505',
+                            panel: '#0a0b10',
+                            neon: '#00f0ff',
+                            purple: '#b026ff',
+                            lightbg: '#e2e8f0',
+                            lightpanel: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"Share Tech Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Efecto de fondo de cuadrícula cibernética */
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, currentColor 1px, transparent 1px),
+                linear-gradient(to bottom, currentColor 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .dark .grid-bg { color: rgba(0, 240, 255, 0.15); }
+        .grid-bg { color: rgba(0, 0, 0, 0.05); }
 
+        /* Efecto de líneas de escáner de monitor antiguo */
+        .scanlines {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-cyber-lightbg dark:bg-cyber-base text-gray-800 dark:text-gray-200 font-mono transition-colors duration-500 flex items-center justify-center min-h-screen antialiased relative overflow-hidden">
+
+    <!-- Fondo de cuadrícula -->
+    <div class="absolute inset-0 z-0 grid-bg transition-colors duration-500"></div>
+
+    <!-- Contenedor principal del móvil -->
+    <div class="w-full max-w-sm bg-cyber-lightpanel dark:bg-cyber-panel min-h-screen sm:min-h-[800px] sm:h-auto relative flex flex-col z-10 sm:border-2 border-cyber-neon/40 dark:border-cyber-neon/60 sm:shadow-[0_0_30px_-5px_rgba(0,240,255,0.2)] transition-all duration-500 overflow-hidden">
+        
+        <!-- Efecto Scanlines sobre la app -->
+        <div class="absolute inset-0 z-50 scanlines opacity-50 dark:opacity-100"></div>
+
+        <!-- Botón Toggle Modo Claro/Oscuro -->
+        <button onclick="toggleTheme()" class="absolute top-4 right-4 z-[60] p-2 rounded-none border border-cyber-neon/50 text-cyber-neon hover:bg-cyber-neon hover:text-cyber-base transition-all duration-300 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+            <!-- Icono Luna (para modo claro) -->
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <!-- Icono Sol (para modo oscuro) -->
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+
+        <!-- Encabezado del perfil -->
+        <header class="relative pt-20 pb-8 px-6 text-center border-b-2 border-cyber-neon/30 dark:border-cyber-neon/50 bg-gradient-to-b from-transparent to-cyber-neon/5 dark:to-cyber-neon/10 z-[40]">
+            <!-- Foto de perfil cibernética -->
+            <div class="w-24 h-24 mx-auto bg-transparent border-2 border-cyber-neon flex items-center justify-center relative mb-6 shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+                <!-- Efecto de esquinas de mira -->
+                <div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-cyber-neon"></div>
+                <div class="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-cyber-neon"></div>
+                <div class="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-cyber-neon"></div>
+                <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-cyber-neon"></div>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-cyber-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M12 8v4"/>
+                    <path d="M12 16h.01"/>
+                </svg>
+            </div>
+            <h1 class="text-xl font-bold tracking-[0.2em] uppercase text-gray-900 dark:text-white drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">CONTROL DE ACCESO</h1>
+            <p class="text-cyber-neon text-xs mt-2 uppercase tracking-widest">[ Seleccione destino ]</p>
+        </header>
+
+        <!-- Contenedor de Enlaces -->
+        <main class="flex-1 px-6 py-8 flex flex-col gap-4 z-[40]">
+            
+            <!-- Estructura de Enlace (Repetida 5 veces) -->
+            <a href="https://registro-horas-md.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
+                <!-- Decoración izquierda -->
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+                
+                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">01 // Registro Horas MD</span>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors">[ ACCEDER ]</span>
+            </a>
+
+            <a href="#" onclick="requirePassword(event, 'https://turnos-ap.vercel.app/')" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">02 // Turnos AP (solo aps)</span>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors text-cyber-purple">[ BLOQUEADO ]</span>
+            </a>
+
+            <a href="https://calculadora-plan-vinculacion.vercel.app" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">03 // Plan Vinculación</span>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors">[ ACCEDER ]</span>
+            </a>
+
+            <a href="https://laser-panic.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">04 // Laser Panic</span>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors">[ ACCEDER ]</span>
+            </a>
+
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="py-6 text-center z-[40]">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 dark:text-gray-600">Conexión Segura v1.0</p>
+        </footer>
+    </div>
+
+    <!-- Modal de Contraseña -->
+    <div id="password-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm px-4">
+        <div class="bg-cyber-lightpanel dark:bg-cyber-panel border-2 border-cyber-neon/80 p-6 max-w-sm w-full shadow-[0_0_30px_rgba(0,240,255,0.3)] relative">
+            <div class="absolute top-0 left-0 w-full h-1 bg-cyber-neon"></div>
+            <h2 class="text-xl font-bold uppercase tracking-widest text-gray-900 dark:text-white mb-4 drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">ACCESO RESTRINGIDO</h2>
+            <p class="text-xs text-gray-600 dark:text-gray-400 mb-4 uppercase">Introduzca la clave de desencriptación:</p>
+            <input type="password" id="cyber-password" class="w-full bg-transparent border border-gray-400 dark:border-cyber-neon/50 text-gray-900 dark:text-cyber-neon p-2 mb-2 focus:outline-none focus:border-cyber-neon focus:shadow-[0_0_10px_rgba(0,240,255,0.2)] font-mono" placeholder="********">
+            <p id="password-error" class="text-red-500 text-xs hidden mb-4 font-bold uppercase tracking-widest animate-pulse">¡ACCESO DENEGADO!</p>
+            <div class="flex justify-end gap-3 mt-4">
+                <button onclick="closePasswordModal()" class="px-4 py-2 text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Cancelar</button>
+                <button onclick="verifyPassword()" class="px-4 py-2 text-xs uppercase tracking-wider bg-cyber-neon/10 border border-cyber-neon text-cyber-neon hover:bg-cyber-neon hover:text-cyber-base transition-all shadow-[0_0_10px_rgba(0,240,255,0.2)]">Autorizar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para gestionar el modo claro/oscuro -->
+    <script>
+        let pendingUrl = '';
+
+        function requirePassword(e, url) {
+            e.preventDefault();
+            pendingUrl = url;
+            const modal = document.getElementById('password-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('cyber-password').value = '';
+            document.getElementById('password-error').classList.add('hidden');
+            document.getElementById('cyber-password').focus();
+        }
+
+        function closePasswordModal() {
+            const modal = document.getElementById('password-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            pendingUrl = '';
+        }
+
+        function verifyPassword() {
+            const input = document.getElementById('cyber-password').value;
+            if (input === 'eloestemolamas') {
+                window.open(pendingUrl, '_blank');
+                closePasswordModal();
+            } else {
+                document.getElementById('password-error').classList.remove('hidden');
+            }
+        }
+
+        // Permitir 'Enter' para enviar la contraseña
+        document.getElementById('cyber-password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verifyPassword();
+            }
+        });
+
+        const htmlNode = document.documentElement;
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        function toggleTheme() {
+            htmlNode.classList.toggle('dark');
+            
+            // Cambiar iconos
+            if (htmlNode.classList.contains('dark')) {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
