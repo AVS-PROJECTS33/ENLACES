@@ -60,8 +60,15 @@
         <!-- Efecto Scanlines sobre la app -->
         <div class="absolute inset-0 z-50 scanlines opacity-50 dark:opacity-100"></div>
 
+        <!-- Aviso Superior -->
+        <div class="w-full bg-cyber-neon/10 dark:bg-cyber-neon/20 border-b border-cyber-neon/40 text-center py-2 relative z-[60]">
+            <p class="text-[9px] sm:text-[10px] text-gray-800 dark:text-cyber-neon uppercase tracking-[0.15em] font-bold animate-pulse">
+                > Recuerda después de abrir, añadir a página de inicio <
+            </p>
+        </div>
+
         <!-- Botón Toggle Modo Claro/Oscuro -->
-        <button onclick="toggleTheme()" class="absolute top-4 right-4 z-[60] p-2 rounded-none border border-cyber-neon/50 text-cyber-neon hover:bg-cyber-neon hover:text-cyber-base transition-all duration-300 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+        <button onclick="toggleTheme()" class="absolute top-12 right-4 z-[60] p-2 rounded-none border border-cyber-neon/50 text-cyber-neon hover:bg-cyber-neon hover:text-cyber-base transition-all duration-300 shadow-[0_0_10px_rgba(0,240,255,0.3)]">
             <!-- Icono Luna (para modo claro) -->
             <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
             <!-- Icono Sol (para modo oscuro) -->
@@ -69,7 +76,7 @@
         </button>
 
         <!-- Encabezado del perfil -->
-        <header class="relative pt-20 pb-8 px-6 text-center border-b-2 border-cyber-neon/30 dark:border-cyber-neon/50 bg-gradient-to-b from-transparent to-cyber-neon/5 dark:to-cyber-neon/10 z-[40]">
+        <header class="relative pt-16 pb-8 px-6 text-center border-b-2 border-cyber-neon/30 dark:border-cyber-neon/50 bg-gradient-to-b from-transparent to-cyber-neon/5 dark:to-cyber-neon/10 z-[40]">
             <!-- Foto de perfil cibernética -->
             <div class="w-24 h-24 mx-auto bg-transparent border-2 border-cyber-neon flex items-center justify-center relative mb-6 shadow-[0_0_15px_rgba(0,240,255,0.4)]">
                 <!-- Efecto de esquinas de mira -->
@@ -96,26 +103,47 @@
                 <!-- Decoración izquierda -->
                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
                 
-                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">01 // Registro Horas MD</span>
-                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors">[ ACCEDER ]</span>
+                <div class="relative z-10 flex flex-col flex-1 pr-2">
+                    <span class="font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">01 // Registro Horas MD</span>
+                    <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 tracking-wide group-hover:text-cyber-neon/80 transition-colors">> App de fichaje y control horario</span>
+                </div>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors whitespace-nowrap">[ ACCEDER ]</span>
             </a>
 
             <a href="#" onclick="requirePassword(event, 'https://turnos-ap.vercel.app/')" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">02 // Turnos AP (solo aps)</span>
-                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors text-cyber-purple">[ BLOQUEADO ]</span>
+                <div class="relative z-10 flex flex-col flex-1 pr-2">
+                    <span class="font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">02 // Turnos AP (solo aps)</span>
+                    <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 tracking-wide group-hover:text-cyber-neon/80 transition-colors">> Gestión de cuadrantes y horarios</span>
+                </div>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors text-cyber-purple whitespace-nowrap">[ BLOQUEADO ]</span>
             </a>
 
             <a href="https://calculadora-plan-vinculacion.vercel.app" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">03 // Plan Vinculación</span>
-                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors">[ ACCEDER ]</span>
+                <div class="relative z-10 flex flex-col flex-1 pr-2">
+                    <span class="font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">03 // Plan Vinculación</span>
+                    <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 tracking-wide group-hover:text-cyber-neon/80 transition-colors">> Calculadora de objetivos y métricas</span>
+                </div>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors whitespace-nowrap">[ ACCEDER ]</span>
             </a>
 
             <a href="https://laser-panic.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-                <span class="relative z-10 font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">04 // Laser Panic</span>
-                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors">[ ACCEDER ]</span>
+                <div class="relative z-10 flex flex-col flex-1 pr-2">
+                    <span class="font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">04 // Laser Panic</span>
+                    <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 tracking-wide group-hover:text-cyber-neon/80 transition-colors">> Minijuego arcade interactivo</span>
+                </div>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors whitespace-nowrap">[ ACCEDER ]</span>
+            </a>
+
+            <a href="https://control-de-gastos-opal.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-between p-4 bg-transparent border border-gray-300 dark:border-cyber-neon/30 hover:border-cyber-neon dark:hover:border-cyber-neon shadow-[inset_0_0_0_transparent] hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.15)] dark:hover:shadow-[inset_0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-cyber-neon scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+                <div class="relative z-10 flex flex-col flex-1 pr-2">
+                    <span class="font-bold uppercase tracking-wider text-sm dark:text-gray-300 text-gray-700 group-hover:text-cyber-neon transition-colors">05 // Control de Gastos</span>
+                    <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 tracking-wide group-hover:text-cyber-neon/80 transition-colors">> Herramienta de gestión financiera</span>
+                </div>
+                <span class="relative z-10 text-xs text-gray-400 dark:text-gray-600 group-hover:text-cyber-neon transition-colors whitespace-nowrap">[ ACCEDER ]</span>
             </a>
 
         </main>
